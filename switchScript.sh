@@ -1,5 +1,5 @@
 #!/bin/sh
-# set -e
+set -e
 
 ### Credit to the Authors at https://rentry.org/CFWGuides
 ### Script created by Fraxalotl
@@ -180,14 +180,13 @@ if [ $? -ne 0 ]; then
     echo "wiliwili download\033[31m failed\033[0m."
 else
     echo "wiliwili download\033[32m success\033[0m."
-    unzip -q wiliwili-NintendoSwitch.zip
-    mkdir -op ./switch/wiliwili
-    mv wiliwili/wiliwili.nro ./switch/wiliwili
-    rm -rf wiliwili
-    rm wiliwili-NintendoSwitch.zip
+    # unzip -q wiliwili-NintendoSwitch.zip
+    # mkdir -op ./switch/wiliwili
+    # mv wiliwili/wiliwili.nro ./switch/wiliwili
+    # rm -rf wiliwili
+    # rm wiliwili-NintendoSwitch.zip
 fi
 
-set -e
 
 ### Fetch lastest Switch_90DNS_tester from https://github.com/meganukebmp/Switch_90DNS_tester/releases/latest
 curl -sL https://api.github.com/repos/meganukebmp/Switch_90DNS_tester/releases/latest \
