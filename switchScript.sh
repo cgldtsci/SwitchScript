@@ -180,11 +180,6 @@ if [ $? -ne 0 ]; then
     echo "wiliwili download\033[31m failed\033[0m."
 else
     echo "wiliwili download\033[32m success\033[0m."
-    # unzip -q wiliwili-NintendoSwitch.zip
-    # mkdir -op ./switch/wiliwili
-    # mv wiliwili/wiliwili.nro ./switch/wiliwili
-    # rm -rf wiliwili
-    # rm wiliwili-NintendoSwitch.zip
 fi
 
 
@@ -243,20 +238,6 @@ else
     echo "Awoo Installer download\033[32m success\033[0m."
     unzip -oq Awoo-Installer.zip
     rm Awoo-Installer.zip
-fi
-
-### Fetch lastest Hekate-toolbox from https://github.com/WerWolv/Hekate-Toolbox/releases/latest
-curl -sL https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases/latest \
-  | jq '.tag_name' \
-  | xargs -I {} echo HekateToolbox {} >> ../description.txt
-curl -sL https://api.github.com/repos/WerWolv/Hekate-Toolbox/releases/latest \
-  | jq '.assets' | jq '.[0].browser_download_url' \
-  | xargs -I {} curl -sL {} -o HekateToolbox.nro
-if [ $? -ne 0 ]; then
-    echo "HekateToolbox download\033[31m failed\033[0m."
-else
-    echo "HekateToolbox download\033[32m success\033[0m."
-    mv HekateToolbox.nro ./switch
 fi
 
 ### Fetch lastest NX-Activity-Log from https://github.com/zdm65477730/NX-Activity-Log/releases/latest
